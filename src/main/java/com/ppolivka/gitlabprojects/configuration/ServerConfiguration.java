@@ -3,6 +3,7 @@ package com.ppolivka.gitlabprojects.configuration;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.ValidationInfo;
+import com.intellij.openapi.util.IconLoader;
 import com.intellij.ui.EnumComboBoxModel;
 import com.ppolivka.gitlabprojects.dto.GitlabServer;
 import org.apache.commons.lang.StringUtils;
@@ -123,6 +124,7 @@ public class ServerConfiguration extends DialogWrapper {
 
     private void setupListeners() {
         tokenPage.addActionListener(e -> openWebPage(generateHelpUrl()));
+        tokenPage.setIcon(IconLoader.findIcon("/icons/web.png"));
         onServerChange();
         apiURl.getDocument().addDocumentListener(new DocumentListener() {
             @Override
