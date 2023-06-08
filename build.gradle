@@ -1,18 +1,14 @@
 plugins {
-    id "org.jetbrains.intellij" version "0.2.13"
-    id 'io.franzbecker.gradle-lombok' version '1.14'
+    id("java")
+    id("org.jetbrains.intellij") version "1.14.1"
 }
 
 intellij {
-    version 'IC-2018.1'
-    updateSinceUntilBuild false
-    plugins 'git4idea'
-    pluginName 'GitLabProjects'
-}
-
-lombok {
-    version = '1.18.2'
-    sha256 = ""
+    version.set("2023.1.2")
+    type.set("IC")
+    updateSinceUntilBuild.set(false)
+    plugins.set(List.of("vcs-git"))
+    pluginName.set('GitLabProjects')
 }
 
 repositories {
@@ -20,6 +16,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'commons-io', name: 'commons-io', version: '2.4'
-    compile group: 'org.gitlab', name: 'java-gitlab-api', version: '4.0.0'
+    implementation("commons-io:commons-io:2.12.0")
+    implementation("org.gitlab:java-gitlab-api:4.1.1")
+    compileOnly("org.projectlombok:lombok:1.18.28")
 }
